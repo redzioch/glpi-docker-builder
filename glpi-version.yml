@@ -4,4 +4,4 @@ glpi-docker:
 glpi:
   repository:
     url: https://github.com/glpi-project/glpi.git
-  tag: 10.0.5
+  tag: 10.0.4
