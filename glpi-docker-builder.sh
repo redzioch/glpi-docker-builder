@@ -37,10 +37,18 @@ rm -rf ${GLPI_SOURCES_DIRECTORY}/.git
 # build image
 cd ${GLPI_NIGHTLY_DIRECTORY}
 docker build -t ${GLPI_IMAGE_NAME} -f Dockerfile .
+if [ $? -ne 0 ]; then
+  echo "Building image failed"
+  return 1
+fi
 
 # tag image
-# docker tag ${GLPI_IMAGE_NAME} ${GLPI_IMAGE_PATH}
-# docker tag ${GLPI_IMAGE_NAME} ${GLPI_IMAGE_PATH}:${GLPI_TAG}
+docker tag ${GLPI_IMAGE_NAME} ${GLPI_IMAGE_PATH}
+docker tag ${GLPI_IMAGE_NAME} ${GLPI_IMAGE_PATH}:${GLPI_TAG}
 
 # push image
-# docker push ${GLPI_IMAGE_NAME} --all-tags
+docker push ${GLPI_IMAGE_NAME} --all-tags
+if [ $? -ne 0 ]; then
+  echo "Pushing image failed"
+  return 1
+fi
