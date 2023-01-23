@@ -7,10 +7,9 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       # - uses: actions/setup-node@v3
       #   with:
       #     node-version: '14'
       - run: ls -lah
-      - run: ls -lah ..
-      - run: pwd
+      - run: /bin/bash glpi-docker-builder.sh
