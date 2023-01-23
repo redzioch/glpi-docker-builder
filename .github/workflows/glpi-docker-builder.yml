@@ -10,4 +10,4 @@ jobs:
       # - uses: actions/setup-node@v3
       #   with:
       #     node-version: '14'
-      - run: wheris bash
+      - run: whereis bash
