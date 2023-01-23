@@ -6,10 +6,13 @@ on:
   workflow_dispatch: {}
 
 env:
+  GLPI_DOCKER_REPO: "https://github.com/glpi-project/docker-images.git"  
   GLPI_DOCKER_DIRECTORY: "./glpi-docker"
-  GLPI_DIRECTORY: "./glpi"
-  GLPI_NIGHTLY_DIRECTORY: "${GLPI_DOCKER_DIRECTORY}/glpi-nightly"
-  GLPI_SOURCES_DIRECTORY: "${GLPI_NIGHTLY_DIRECTORY}/sources"
+  GLPI_DOCKER_NIGHTLY_DIRECTORY: "glpi-nightly"
+  GLPI_DOCKER_SOURCES_DIRECTORY: "sources"
+  GLPI_APP_REPO: "https://github.com/glpi-project/glpi.git"
+  GLPI_APP_TAG: "10.0.4"
+  GLPI_APP_DIRECTORY: "./glpi"
 
 jobs:
   build-image:
