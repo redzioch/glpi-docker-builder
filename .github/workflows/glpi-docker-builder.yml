@@ -53,6 +53,4 @@ jobs:
           context: ./glpi-docker/glpi-nightly
           file: ./glpi-docker/glpi-nightly/Dockerfile
           push: true
-          tags:
-            ${{ secrets.DOCKERHUB_USERNAME }}/glpi:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/glpi:${{ env.GLPI_APP_TAG }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/glpi:latest,${{ secrets.DOCKERHUB_USERNAME }}/glpi:${{ env.GLPI_APP_TAG }}
