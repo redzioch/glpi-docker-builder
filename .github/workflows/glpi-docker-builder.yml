@@ -28,15 +28,15 @@ jobs:
       - name: Checkout glpi app
         uses: actions/checkout@v3
         with:
-          repository: $GLPI_APP_REPO
-          ref: $GLPI_APP_TAG
-          path: $GLPI_APP_DIRECTORY
+          repository: "$GLPI_APP_REPO"
+          ref: "$GLPI_APP_TAG"
+          path: "$GLPI_APP_DIRECTORY"
 
       - name: Checkout glpi-docker
         uses: actions/checkout@v3
         with:
-          repository: $GLPI_DOCKER_REPO
-          path: $GLPI_DOCKER_DIRECTORY
+          repository: "$GLPI_DOCKER_REPO"
+          path: "$GLPI_DOCKER_DIRECTORY"
 
       - run: ls -lah
 
