@@ -22,8 +22,8 @@ jobs:
     steps:
       # - run: export
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      # - name: Checkout
+      #   uses: actions/checkout@v3
 
       - name: Checkout glpi app
         uses: actions/checkout@v3
@@ -38,20 +38,21 @@ jobs:
           repository: glpi-project/docker-images
           path: ./glpi-docker
 
-      - run: ls -lah
+      - name: Prepare sources
+        run: rm -rf ./glpi/.git; mv ./glpi ./glpi-docker/glpi-nightly
 
-      # - name: Login to Docker Hub
-      #   uses: docker/login-action@v2
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # - name: Prepare source
-      #   run: /bin/bash ./glpi-docker-builder.sh
-      # - name: Build and push
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./glpi-docker/glpi/nightly
-      #     file: ./Dockerfile
-      #     push: true
-      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: ./glpi-docker/glpi-nightly
+          file: ./glpi-docker/glpi-nightly/Dockerfile
+          push: true
+          tags:
+            ${{ secrets.DOCKERHUB_USERNAME }}/glpi:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/glpi:${{ env.GLPI_APP_TAG }}
