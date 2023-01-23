@@ -39,7 +39,7 @@ jobs:
           path: ./glpi-docker
 
       - name: Prepare sources
-        run: rm -rf ./glpi/.git; mv ./glpi ./glpi-docker/glpi-nightly
+        run: rm -rf ./glpi/.git; mv ./glpi ./glpi-docker/glpi-nightly/sources
 
       - run: ls -lah ./glpi-docker/glpi-nightly
 
