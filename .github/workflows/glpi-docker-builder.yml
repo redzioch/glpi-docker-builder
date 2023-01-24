@@ -2,7 +2,6 @@ name: glpi-docker-builder
 # run-name: ${{ github.actor }} is learning GitHub Actions
 
 on:
-  push: {}
   workflow_dispatch: {}
 
 env:
@@ -29,7 +28,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: glpi-project/glpi
-          ref: 10.0.4
+          ref: 10.0.3
           path: ./glpi
 
       - name: Checkout glpi-docker
