@@ -12,7 +12,7 @@ env:
   GLPI_DOCKER_SOURCES_DIRECTORY: "sources"
 
   GLPI_APP_REPO: "glpi-project/glpi"
-  GLPI_APP_TAG: "10.0.6"
+  GLPI_APP_TAG: "10.0.5"
   GLPI_APP_DIRECTORY: "./glpi"
 
 jobs:
@@ -27,9 +27,9 @@ jobs:
       - name: Checkout glpi app
         uses: actions/checkout@v3
         with:
-          repository: glpi-project/glpi
-          ref: 10.0.4
-          path: ./glpi
+          repository: ${{ env.GLPI_APP_REPO }}
+          ref: ${{ env.GLPI_APP_TAG }}
+          path: ${{ env.GLPI_APP_DIRECTORY }}
 
       - name: Checkout glpi-docker
         uses: actions/checkout@v3
