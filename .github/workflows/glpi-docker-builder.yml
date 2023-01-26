@@ -3,6 +3,9 @@ name: glpi-docker-builder
 
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+      - main
 
 env:
 
@@ -12,7 +15,7 @@ env:
   GLPI_DOCKER_SOURCES_DIRECTORY: "sources"
 
   GLPI_APP_REPO: "glpi-project/glpi"
-  GLPI_APP_TAG: "10.0.5"
+  GLPI_APP_TAG: "10.0.6"
   GLPI_APP_DIRECTORY: "./glpi"
 
 jobs:
