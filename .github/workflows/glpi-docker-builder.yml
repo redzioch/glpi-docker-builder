@@ -15,7 +15,7 @@ env:
   GLPI_DOCKER_SOURCES_DIRECTORY: "sources"
 
   GLPI_APP_REPO: "glpi-project/glpi"
-  GLPI_APP_TAG: "10.0.9"
+  GLPI_APP_TAG: "10.0.10"
   GLPI_APP_DIRECTORY: "./glpi"
 
 jobs:
